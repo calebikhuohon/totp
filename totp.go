@@ -88,7 +88,7 @@ func main() {
 		steps = "0" + steps
 	}
 
-	seed := secret("calebikhuohon@gmail.comHENNGECHALLENGE003")
+	seed := secret("your_secret")
 	s := generateTOTP(seed, steps, 10, sha512.New)
 
 	fmt.Println(s)
