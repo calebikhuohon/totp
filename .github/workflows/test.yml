@@ -1,0 +1,29 @@
+name: Migration - Production
+
+# This workflow runs when there is a push to main that includes a change to this file and deploys
+# the specified production migration script
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  run-migration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v2
+
+      - name: 'dummy secrets test'
+        env:
+          DUMMY: ${{ secrets.DUMMY_SECRET }}
+        run: |
+          cat <<EOF >> .ignore
+          DUMMY=$DUMMY
+          testing...
+          EOF
+          
+          echo "done with test"
+          
+          cat .ignore
