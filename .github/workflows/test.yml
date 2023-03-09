@@ -1,14 +1,12 @@
-name: Migration - Production
+name: dummy
 
-# This workflow runs when there is a push to main that includes a change to this file and deploys
-# the specified production migration script
 on:
   push:
     branches:
       - master
 
 jobs:
-  run-migration:
+  dummy:
     runs-on: ubuntu-latest
 
     steps:
